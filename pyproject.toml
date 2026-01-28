@@ -10,6 +10,7 @@ dependencies = [
     "langchain>=1.2.6",
     "langchain-community>=0.4.1",
     "pandas>=3.0.0",
+    "pdfplumber>=0.11.9",
     "polars>=1.37.1",
     "python-dotenv>=1.2.1",
     "sentence-transformers>=5.2.0",
