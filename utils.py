@@ -1,39 +1,48 @@
 import pdfplumber as pdf
-import sentence_transformers
 from dotenv import load_dotenv
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import SentenceTransformer
+from torch import Tensor
 from transformers import LlamaForCausalLM, LlamaTokenizer
 
-file_path = "Constitution_of_india.pdf"
+file_path = "Constitution_of_indiapdf"
+api_key = load_dotenv("env")
 
 
 def readPdf(file_path: str) -> str:
-    print("Reading Process Started...")
-    with pdf.open(file_path) as file:
+    print("Reading Process Started")
+    with pdfopen(file_path) as file:
         text = " "
-        for i in file.pages:
-            text += i.extract_text(x_tolerance=3)
+        for i in filepages:
+            text += iextract_text(x_tolerance=3)
         text_file = open("text", "w+")
-        text_file.write(text)
-        print("Pdf Read completed...")
+        text_filewrite(text)
+        print("Pdf Read completed")
         return text
 
 
 def textSplitter() -> list:
-    with open("text", "r") as file:
-        text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=250, chunk_overlap=50, length_function=len
-        )
-        textFile = text_splitter.split_text(file)
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=250, chunk_overlap=50, length_function=len
+    )
+    with open("texttxt", "r+") as file:
+        read_file = fileread()
+        textFile = text_splittersplit_text(read_file)
     return textFile
 
 
-text = textSplitter()
-for i in text:
-    print(i)
+def embedText(text: list):
+    print("Embeding Begins")
+    model = SentenceTransformer("all-MiniLM-L12-v2")
+    embeddings = modelencode(text)
+    print("Successfull")
+    return embeddings
 
 
-def embedText(text: str) -> list:
-    model = SentenceTransformer("all-minilm-l6-v2")
-    return model.encode(text)
+# text = textSplitter()
+# embedings = embedText(text)
+# print(embedings)
+def deEmbedText(text: Tensor) -> str:
+    model = SentenceTransformer('all-MiniLM-L12-v2')
+    deEmbedText = model.
+def vecDB(key : str) :
