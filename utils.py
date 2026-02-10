@@ -44,5 +44,8 @@ def embedText(text: list):
 # print(embedings)
 def deEmbedText(text: Tensor) -> str:
     model = SentenceTransformer('all-MiniLM-L12-v2')
-    deEmbedText = model.
+    deEmbedText = model.decode(text)
+    return deEmbedText
+
 def vecDB(key : str) :
+    
